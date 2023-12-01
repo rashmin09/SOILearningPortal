@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise 2</title>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+</head>
+
+<body>
+    <form id="myForm">
+        <!-- Two text fields - Name and Email -->
+        <label for="name">Name:</label>
+        <input id="name" type="text" placeholder="Name" value=""><br><br>
+
+        <label for="email">Email:</label>
+        <input id="email" type="email" placeholder="Email" value=""><br><br>
+
+        <!-- Radio Buttons -->
+        <label>Gender:</label>
+        <input type="radio" id="male" name="gender" value="male">
+        <label for="male">Male</label>
+        <input type="radio" id="female" name="gender" value="female">
+        <label for="female">Female</label><br><br>
+
+        <!-- Submit button -->
+        <input type="button" value="Submit" onclick="displayFormData()">
+    </form>
+
+    <!-- Display form data -->
+    <div id="formDataDisplay"></div>
+
+    <script>
+        function displayFormData() {
+            var name = $("#name").val();
+            var email = $("#email").val();
+            var gender = $('input[name="gender"]:checked').val();
+
+            gender = gender.charAt(0).toUpperCase() + gender.slice(1);
+
+            var displayDiv = $("#formDataDisplay");
+            displayDiv.html("<p><strong>Name:</strong> " + name + "</p>" + "<p><strong>Email:</strong> " + email + "</p>" + "<p><strong>Gender:</strong> " + gender + "</p>");
+
+            displayDiv.hide().fadeIn();
+
+            displayDiv.css({
+                "font-family": "Arial",
+                "border": "2px solid #333",
+                "background-color": "#eee",
+                "padding": "10px"
+            });
+        }
+
+        $("#formDataDisplay").on("mouseover", function() {
+            $(this).slideUp();
+        });
+    </script>
+</body>
+
+</html>

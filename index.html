@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+        <link rel="stylesheet" href="css/jquery-ui.css">
+        <link rel="stylesheet" href="css/jquery-ui.min.css">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="https://kit.fontawesome.com/633622bc76.js" crossorigin="anonymous"></script>
+        <script src="js/bootstrap-jquery-check.js"></script>
+        <script src="js/bootstrap.bundle.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/jquery-ui.min.js"></script>
+        <script src="js/jquery.min.js"></script>
+        <script src="js/tags.js"></script>
+        <title>SOI Learning Portal</title>
+        <style>
+            .col-md-7 {
+                padding: 180px;
+            }
+            .offline {
+                color: grey;
+            }
+            .fa-circle-user {
+                border: 3.2px solid #00FF00;
+                border-radius: 50%;
+                cursor: pointer;
+                display: inline-block;
+                line-height: 1;
+                text-align: center;
+                font-size: 32px; 
+                margin-right: -0.1px;
+            }
+            .fa-circle-user.offline {
+                border-color: #808080;
+            }
+            .fa-xl {
+                width: 100%;
+                height: 100%;
+            }
+            img.hero-image {
+                width: 60%;
+                height: 90%;
+            }
+            .hero-section {
+                height: 505px;
+                background: linear-gradient(to bottom, #3498db, #87CEFA);
+                color: #fff;
+            }
+            .columns {
+                padding: 200px;
+                margin-top: -185px;
+                margin-bottom: -185px;
+            }
+            .description-header {
+                font-size: 25px;
+            }
+            .description {
+                font-size: 20px;
+            }
+            .icon-container {
+                display: flex;
+                align-items: center;
+            }
+            .icon-container i {
+                margin-right: 10px;
+            }
+            .icon-container div {
+                flex-grow: 1;
+            }
+            .icon-container h2, .icon-container p {
+                margin: 0;
+            }
+            .fc {
+                font-size: 45px;
+                color: #fff;
+                margin-bottom: 30px;
+            }
+            .cards-section {
+                background: linear-gradient(to bottom, #87CEFA, #3498db);
+                padding: 100px;
+            }
+            .card {
+                border: 1px solid #000000;
+            }
+            .card-img-top {
+                border-bottom: 1px solid #000000;
+                object-fit: cover;
+                width: 100%;
+                height: 200px; 
+            }
+            .offcanvas-body {
+                text-align: center;
+                max-width: 600px;
+                margin: 0 auto;
+            }
+            .carousel-control-prev, .carousel-control-next {
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                width: auto;
+                margin-top: 0;
+                padding: 0 15px;
+            }
+            .carousel-control-prev {
+                margin-left: -50px;
+            }
+            .carousel-control-next {
+                margin-right: -50px;
+            }
+            .carousel-control-prev-icon, .carousel-control-next-icon {
+                background-color: rgba(0, 0, 0, 0.5);
+            }
+            .zoom-out-image {
+                object-fit: contain;
+            }
+            @media (max-width: 768px) {
+                .col-md-7 {
+                    padding: 60px;
+                }
+                .hero-section {
+                    height: 254px;
+                }
+                .hero-image {
+                    width: 100%;
+                    height: auto;
+                    max-width: 100%;
+                    max-height: 100%;
+                }
+                .description-header {
+                    font-size: 14px;
+                }
+                .description {
+                    font-size: 12px;
+                }
+                .columns {
+                    padding: 0px;
+                    height: 500px;
+                    margin-top: 15px;
+                    margin-bottom: -450px;
+                    margin-left: 20px;
+                }
+                .icon-container {
+                    display: flex;
+                    align-items: center;
+                    text-align: center;
+                }
+                .icon-container i {
+                    margin-right: 0;
+                }
+                navbar-collapse {
+                    background-color: #343a40;
+                }
+                .card-img-top {
+                    height: 200px;
+                }
+            }
+            @media (min-width: 424px) and (max-width: 425px) {
+                .col-md-7 {
+                    padding: 60px;
+                }
+                .hero-section {
+                    height: 621.8px;
+                }
+                .hero-image {
+                    width: 100%;
+                    height: auto;
+                    max-width: 100%;
+                    max-height: 100%;
+                    margin-left: 80px;
+                }
+                .description-header {
+                    font-size: 14px;
+                }
+                .description {
+                    font-size: 12px;
+                }
+                .columns {
+                    padding: 0px;
+                    height: 570px;
+                    margin-top: 15px;
+                    margin-bottom: -450px;
+                    margin-left: 20px;
+                }
+                .icon-container {
+                    display: flex;
+                    align-items: center;
+                    text-align: center;
+                }
+                .icon-container i {
+                    margin-right: 0;
+                }
+                navbar-collapse {
+                    background-color: #343a40;
+                }
+                .card-img-top {
+                    height: 150px;
+                }
+                .fc {
+                    font-size: 32px;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container">
+                <a class="navbar-brand" href="#">SOI Learning Portal</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">About</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="coursesDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Courses</a>
+                            <div class="dropdown-menu" aria-labelledby="coursesDropdown">
+                                <a class="dropdown-item" href="#">HTML/CSS</a>
+                                <a class="dropdown-item" href="#">UI/UX</a>
+                                <a class="dropdown-item" href="#">iOS</a>
+                                <a class="dropdown-item" href="#">JavaScript</a>
+                                <a class="dropdown-item" href="#">Python</a>
+                                <a class="dropdown-item" href="#">Java</a>
+                                <a class="dropdown-item" href="#">PHP</a>
+                                <a class="dropdown-item" href="#">React</a>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Contact</a>
+                        </li>
+                    </ul>
+                    <form class="d-flex ms-auto me-3">
+                        <div class="input-group">
+                            <input class="form-control" type="search" placeholder="Search" aria-label="Search" id="coursesSearch">
+                            <button class="btn btn-outline-light" type="submit">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </div>
+                    </form>
+                    <div class="dropdown me-3">
+                        <button class="notification-btn btn btn-secondary dropdown-toggle" type="button" id="notificationsDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fas fa-bell"></i>
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="notificationsDropdown">
+                            <a class="dropdown-item" href="#">Unread</a>
+                            <a class="dropdown-item" href="#">Read</a>
+                        </div>
+                    </div>
+                    <div class="ms-3">
+                        <i class="fa-solid fa-circle-user fa-xl" style="color: #ffffff;"></i>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Hero Section -->
+        <div class="hero-section">
+            <div class="row">
+                <div class="col-md-7">
+                    <h1>SOI Learning Portal</h1>
+                    <p class="lead">Expertly crafted courses that best fit your learning needs and preferences.</p>
+                    <a href="#" class="btn btn-dark">Browse Courses</a>
+                    <a href="#" class="btn btn-outline-dark ms-2">Be an Instructor</a>
+                </div>
+                <div class="col-md-5">
+                    <img src="Images/HeroImage.png" alt="Hero Image" class="img-fluid rounded hero-image">
+                </div>
+            </div>
+        </div>
+
+        <!-- Three-column Section -->
+        <div class="columns">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="icon-container">
+                        <i class="fa-solid fa-laptop" style="color: #000000; font-size: 2rem;"></i>
+                        <div>
+                            <h2 class="description-header">158 online courses</h2>
+                            <p class="description">Enjoy a variety of fresh topics</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="icon-container">
+                        <i class="fa-solid fa-person-chalkboard" style="color: #000000; font-size: 2rem;"></i>
+                        <div>
+                            <h2 class="description-header">Expert instruction</h2>
+                            <p class="description">Find the right instructor for you</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="icon-container">
+                        <i class="fa-solid fa-infinity" style="color: #000000; font-size: 2rem;"></i>
+                        <div>
+                            <h2 class="description-header">Lifetime access</h2>
+                            <p class="description">Learn on your schedule</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Cards Section -->
+        <div class="cards-section">
+            <div id="featuredCoursesCarousel" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="container">
+                            <!-- First set of four cards -->
+                            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
+                                <div class="col mb-3">
+                                    <div class="card h-100">
+                                        <img src="Images/CourseImage1.jpg" class="card-img-top" alt="Course Image 1">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Introduction to HTML and CSS</h5>
+                                            <p class="card-text">2h 30m</p>
+                                            <p class="card-text">Hannah Lim</p>
+                                            <i class="fas fa-bookmark bookmark-icon" title="Add to Bookmarks" onclick="addToBookmarks(this)" data-toggle="tooltip"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col mb-3">
+                                    <div class="card h-100">
+                                        <img src="Images/CourseImage2.jpg" class="card-img-top" alt="Course Image 2">
+                                        <div class="card-body">
+                                            <h5 class="card-title">User Experience and Interface Design</h5>
+                                            <p class="card-text">2h 45m</p>
+                                            <p class="card-text">Julia Lee</p>
+                                            <i class="fas fa-bookmark bookmark-icon" title="Add to Bookmarks" onclick="addToBookmarks(this)" data-toggle="tooltip"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col mb-3">
+                                    <div class="card h-100">
+                                        <img src="Images/CourseImage3.jpg" class="card-img-top" alt="Course Image 3">
+                                        <div class="card-body">
+                                            <h5 class="card-title">iOS App Development using Xcode and Swift</h5>
+                                            <p class="card-text">4h 30m</p>
+                                            <p class="card-text">Ryan Low</p>
+                                            <i class="fas fa-bookmark bookmark-icon" title="Add to Bookmarks" onclick="addToBookmarks(this)" data-toggle="tooltip"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col mb-3">
+                                    <div class="card h-100">
+                                        <img src="Images/CourseImage4.jpg" class="card-img-top" alt="Course Image 4">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Front-end JavaScript Frameworks</h5>
+                                            <p class="card-text">3h 45m</p>
+                                            <p class="card-text">Azhar Kamar</p>
+                                            <i class="fas fa-bookmark bookmark-icon" title="Add to Bookmarks" onclick="addToBookmarks(this)" data-toggle="tooltip"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Next sets of four cards -->
+                    <div class="carousel-item">
+                        <div class="container">
+                            <!-- Second set of four cards -->
+                            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
+                                <div class="col mb-3">
+                                    <div class="card h-100">
+                                        <img src="Images/CourseImage5.jpg" class="card-img-top zoom-out-image" alt="Course Image 5">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Introduction to Python</h5>
+                                            <p class="card-text">2h 30m</p>
+                                            <p class="card-text">Hannah Lim</p>
+                                            <i class="fas fa-bookmark bookmark-icon" title="Add to Bookmarks" onclick="addToBookmarks(this)" data-toggle="tooltip"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col mb-3">
+                                    <div class="card h-100">
+                                        <img src="Images/CourseImage6.jpg" class="card-img-top zoom-out-image" alt="Course Image 6">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Introduction to Java</h5>
+                                            <p class="card-text">2h 45m</p>
+                                            <p class="card-text">Julia Lee</p>
+                                            <i class="fas fa-bookmark bookmark-icon" title="Add to Bookmarks" onclick="addToBookmarks(this)" data-toggle="tooltip"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col mb-3">
+                                    <div class="card h-100">
+                                        <img src="Images/CourseImage7.jpg" class="card-img-top zoom-out-image" alt="Course Image 7">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Introduction to PHP</h5>
+                                            <p class="card-text">4h 30m</p>
+                                            <p class="card-text">Ryan Low</p>
+                                            <i class="fas fa-bookmark bookmark-icon" title="Add to Bookmarks" onclick="addToBookmarks(this)" data-toggle="tooltip"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col mb-3">
+                                    <div class="card h-100">
+                                        <img src="Images/CourseImage8.jpg" class="card-img-top zoom-out-image" alt="Course Image 8">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Introduction to React</h5>
+                                            <p class="card-text">3h 45m</p>
+                                            <p class="card-text">Azhar Kamar</p>
+                                            <i class="fas fa-bookmark bookmark-icon" title="Add to Bookmarks" onclick="addToBookmarks(this)" data-toggle="tooltip"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Navigation controls -->
+                <div class="container mt-3">
+                    <button class="carousel-control-prev" type="button" data-bs-target="#featuredCoursesCarousel" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#featuredCoursesCarousel" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="bg-dark text-light">
+            <div class="container py-3 text-center">
+                <p class="mb-0">&copy; 2021 SOI Learning Portal. All Rights Reserved.</p>
+                <div class="d-flex justify-content-center">
+                    <a href="#" class="text-light me-2">Privacy</a>
+                    <a href="#" class="text-light me-2">Terms</a>
+                    <a href="#" class="text-light me-2">Feedback</a>
+                    <a href="#" class="text-light">Support</a>
+                </div>
+            </div>
+        </footer>
+
+        <!-- Off-Canvas Body -->
+        <div class="offcanvas offcanvas-bottom" tabindex="-1" id="bookmarkOffcanvas" aria-labelledby="bookmarkOffcanvasLabel">
+            <div class="offcanvas-header">
+                <h5 class="offcanvas-title" id="bookmarkOffcanvasLabel">Bookmarked Courses</h5>
+                <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body"></div>
+        </div>
+
+        <script>
+            $(function () {
+                var courseNames = ["HTML/CSS", "UI/UX", "iOS", "JavaScript", "Python", "Java", "PHP", "React"];
+
+                $("#coursesSearch").autocomplete({
+                    source: courseNames,
+                    minLength: 1
+                });
+            });
+
+            $(function () {
+                $(".fa-circle-user").click(function () {
+                    $(this).toggleClass("offline");
+                });
+            });
+
+            $('[data-toggle="tooltip"]').tooltip();
+
+            function addToBookmarks(bookmarkIcon) {
+                var cardClone = $(bookmarkIcon).closest('.card').clone(true);
+                cardClone.find('[data-toggle="tooltip"]').tooltip('dispose');
+                $('#bookmarkOffcanvas .offcanvas-body').append(cardClone);
+                $('#bookmarkOffcanvas').offcanvas('show');
+            }
+        </script>
+    </body>
+</html>
+
